@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-label="Soluciones Eléctricas PV">
+  <rect width="220" height="220" rx="48" fill="#06265a"/>
+  <path d="M126 18 61 117h46l-17 85 69-111h-47z" fill="#ffb400"/>
+  <path d="M40 164c20 20 43 30 70 30 25 0 48-8 69-25" fill="none" stroke="#28a7e8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M34 58h40v18H34zm0 38h27v18H34z" fill="#fff" opacity=".95"/>
+</svg>
