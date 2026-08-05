@@ -16,7 +16,22 @@ section{padding:88px 0}.section-head{max-width:760px;margin-bottom:34px}.section
 .contact{background:var(--bg)}.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px}.contact-info,.contact-form{background:#fff;border-radius:24px;padding:32px;box-shadow:var(--shadow)}.contact-list{display:grid;gap:14px;margin-top:24px}.contact-list div{padding:15px;border-radius:14px;background:#f4f8fc}.contact-form form{display:grid;grid-template-columns:1fr 1fr;gap:14px}.contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:15px;border:1px solid #cad8e6;border-radius:13px;font:inherit;background:#fff}.full{grid-column:1/-1}.contact-form textarea{min-height:130px;resize:vertical}footer{background:#031936;color:#fff;padding:30px 0}.footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.footer p{margin:0;color:#b7c6da}.floating{position:fixed;right:20px;bottom:20px;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;font-size:27px;box-shadow:0 15px 35px rgba(0,0,0,.25);z-index:50}.notice{font-size:12px;color:var(--muted);margin-top:10px}
 @media(max-width:900px){.links{display:none}.hero-grid,.split,.contact-grid{grid-template-columns:1fr}.hero-grid{padding:55px 0}.cards{grid-template-columns:1fr 1fr}.hero-card{transform:none}.cta-box{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}}
 @media(max-width:620px){.brand span{font-size:13px}.brand img{width:46px;height:46px}.actions .primary{display:none}.cards{grid-template-columns:1fr}.contact-form form{grid-template-columns:1fr}.full{grid-column:auto}.hero h1{letter-spacing:-1.5px}.hero p{font-size:17px}.zones{grid-template-columns:1fr}section{padding:68px 0}}
-</style>
+.carrusel-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.hero-slide.activo {
+  display: block;
+}</style>
 </head>
 <body>
 <header><div class="container nav"><a class="brand" href="#inicio"><img src="logo.svg" alt="Logo"><span>Soluciones Eléctricas PV<small data-es="ELECTRICIDAD & AIRE ACONDICIONADO" data-en="ELECTRICAL & AIR CONDITIONING">ELECTRICIDAD & AIRE ACONDICIONADO</small></span></a><nav class="links"><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a><a href="#nosotros" data-es="Nosotros" data-en="About">Nosotros</a><a href="#cobertura" data-es="Cobertura" data-en="Service area">Cobertura</a><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></nav><div class="actions"><button class="lang" id="langBtn" aria-label="Cambiar idioma">EN</button><a class="btn primary" href="https://wa.me/523224450320" target="_blank" data-es="Cotizar" data-en="Get a quote">Cotizar</a></div></div></header>
@@ -41,5 +56,17 @@ function setLang(next){lang=next;document.documentElement.lang=lang;document.que
 btn.addEventListener('click',()=>setLang(lang==='es'?'en':'es'));setLang(localStorage.getItem('sepv-lang')||'es');
 document.getElementById('year').textContent=new Date().getFullYear();
 document.getElementById('quoteForm').addEventListener('submit',e=>{e.preventDefault();const n=document.getElementById('name').value.trim(),p=document.getElementById('phone').value.trim(),s=document.getElementById('service').value,d=document.getElementById('details').value.trim();const m=`Hola, soy ${n}. Mi teléfono es ${p}. Necesito cotización para: ${s}. ${d}`;window.open(`https://wa.me/523224450320?text=${encodeURIComponent(m)}`,'_blank')});
+</script>
+  <script>
+  let indiceHero = 0;
+  const heroSlides = document.querySelectorAll(".hero-slide");
+
+  function cambiarHero() {
+    heroSlides.forEach((slide) => slide.classList.remove("activo"));
+    indiceHero = (indiceHero + 1) % heroSlides.length;
+    heroSlides[indiceHero].classList.add("activo");
+  }
+
+  setInterval(cambiarHero, 4000);
 </script>
 </body></html>
